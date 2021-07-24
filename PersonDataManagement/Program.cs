@@ -7,6 +7,8 @@ namespace PersonDataManagement
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            PersonManagement.AddPerson();
+           
         }
     }
 }
