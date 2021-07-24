@@ -40,6 +40,13 @@ namespace PersonDataManagement
             List<string> recordList1 = DisplayMembers(list1);
             return recordList1;
         }
+       //Compute Average
+       public double AverageAgeRecord()
+        {
+            double averageAge = PeopleList.Average(person => person.age);
+            Console.WriteLine("Average age value is : {0} ", Math.Round(averageAge, 3));
+            return Math.Round(averageAge, 3);
+        }
         //displays details
         public List<string> DisplayMembers(List<Member> peopleList)
         {

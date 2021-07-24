@@ -34,5 +34,14 @@ namespace TestProject
             List<string> actual = personManagement.PersonDataBetweenAge13And18();
             CollectionAssert.AreEqual(expected, actual);
         }
+        //Usecase 4 Average age in the list
+        [TestMethod]
+        public void ReturnAverageofAge()
+        {
+            PersonManagement personManagement = new PersonManagement();
+            double expected = 31.667;
+            double actual = personManagement.AverageAgeRecord();
+            Assert.AreEqual(actual, expected);
+        }
     }
 }
