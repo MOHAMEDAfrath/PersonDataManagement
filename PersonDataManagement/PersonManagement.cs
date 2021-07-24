@@ -26,7 +26,7 @@ namespace PersonDataManagement
         //retrieves the top two person detail from the list whose age is less tha 60;
         public List<string> PersonAgeLessThan60()
         {
-            Console.WriteLine("\n********* Retriving the top 2 person from list whose age is less than 60 *********\n");
+            Console.WriteLine("Retriving the top 2 person from list whose age is less than 60");
             List<Member> list = PeopleList.FindAll(person => person.age < 60).OrderBy(x => x.age).Take(2).ToList();
             List<string> recordList = DisplayMembers(list);
             return recordList;
