@@ -7,21 +7,31 @@ namespace TestProject
     [TestClass]
     public class UnitTest1
     {
-        PersonManagement personManagement;
+        
         [TestInitialize]
         public void TestSetup()
         {
 
-            personManagement = new PersonManagement();
+            PersonManagement personManagement = new PersonManagement();
             personManagement.AddPerson();
 
         }
         //Usecase 2 Retrieve Top two Records"
         [TestMethod]  
-        public void GivenRecord_ReturnTop2_AgeLessThan60()
+        public void TestMethodForAgeLessThan60()
         {
-            List<string> expected = new List<string> { "Krithick", "Dhanush" };
+            PersonManagement personManagement = new PersonManagement();
+            List<string> expected = new List<string> { "Krithick","Dhanush"};
             List<string> actual = personManagement.PersonAgeLessThan60();
+            CollectionAssert.AreEqual(expected, actual);
+        }
+        //Usecase 3 Person Age Between 13 and 18
+        [TestMethod]
+        public void TestMethodAgeRecordBetween13An18()
+        {
+            PersonManagement personManagement = new PersonManagement();
+            List<string> expected = new List<string> { "Krithick"};
+            List<string> actual = personManagement.PersonDataBetweenAge13And18();
             CollectionAssert.AreEqual(expected, actual);
         }
     }
