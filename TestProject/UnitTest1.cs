@@ -45,6 +45,25 @@ namespace TestProject
             double actual = personManagement.AverageAgeRecord();
             Assert.AreEqual(actual, expected);
         }
+        //Usecase 5 search specific name
+        [TestMethod]
+        [DataRow("Krithick", "Found")]
+        [DataRow("krish", "Not Found")]
+        [DataRow(null, "Object reference not set to an instance of an object.")]
+        public void TestMethodSearchaValue(string searchValue, string expected)
+        {
+            PersonManagement personManagement = new PersonManagement();
+            try
+            {
+                string actual = personManagement.SearchingSpecificName(searchValue);
+                Assert.AreEqual(actual, expected);
+            }
+            catch (Exception ex)
+            {
+
+                Assert.AreEqual(ex.Message, expected);
+            }
+        }
         //Usecase 6 Retrieve Record where age greater than 60 andignores data less than 60
         [TestMethod]
         public void TestMethodToSkipData()
