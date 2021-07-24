@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonDataManagement
 {
-    class Member
+    public class Member
     {
         public int SSN;
         public string name;
