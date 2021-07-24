@@ -82,5 +82,24 @@ namespace TestProject
             }
 
         }
+        //Usecase 7 Remove an element from list
+        [TestMethod]
+        public void TestMethodForRemove()
+        {
+
+            PersonManagement personManagement = new PersonManagement();
+            try
+            {
+                int expected = 1;
+                int actual = personManagement.RemoveSpecificName("Dhanush");
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                int expect = 0;
+                Assert.AreEqual(ex.Message, expect);
+            }
+
+        }
     }
 }
