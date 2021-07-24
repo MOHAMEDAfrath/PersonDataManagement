@@ -32,10 +32,11 @@ namespace PersonDataManagement
             List<string> recordList = DisplayMembers(list);
             return recordList;
         }
+
         //Retrieving the record where age is between 13-18
         public List<string> PersonDataBetweenAge13And18()
         {
-            Console.WriteLine("\n********* Retriving the record where age is between 13-18 *********\n");
+            Console.WriteLine("Retriving the record where age is between 13-18");
             List<Member> list1 = PeopleList.FindAll(person1 => person1.age < 18 && person1.age > 13);
             List<string> recordList1 = DisplayMembers(list1);
             return recordList1;
@@ -46,6 +47,31 @@ namespace PersonDataManagement
             double averageAge = PeopleList.Average(person => person.age);
             Console.WriteLine("Average age value is : {0} ", Math.Round(averageAge, 3));
             return Math.Round(averageAge, 3);
+        }
+        //Skip records less than 60
+        public List<string> SkipRecordLessThan60()
+        {
+            try
+            {
+                var list = PeopleList.FindAll(person => person.age > 60);
+                if (list != null)
+                {
+                    Console.WriteLine("\n-----Record which age is greater than 60-----");
+                    List<string> recordList = DisplayMembers(list);
+                    return recordList;
+                }
+                else
+                {
+                    Console.WriteLine("No data available ");
+                    throw new ArgumentNullException("");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return default;
+            }
         }
         //displays details
         public List<string> DisplayMembers(List<Member> peopleList)
