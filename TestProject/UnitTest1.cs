@@ -35,6 +35,7 @@ namespace TestProject
             List<string> actual = personManagement.PersonDataBetweenAge13And18();
             CollectionAssert.AreEqual(expected, actual);
         }
+
         //Usecase 4 Average age in the list
         [TestMethod]
         public void TestMethodReturnAverageofAge()
@@ -61,6 +62,23 @@ namespace TestProject
             {
 
                 Assert.AreEqual(ex.Message, expected);
+            }
+        }
+        //Usecase 6 Retrieve Record where age greater than 60 andignores data less than 60
+        [TestMethod]
+        public void TestMethodToSkipData()
+        {
+            try
+            {
+                PersonManagement personManagement = new PersonManagement();
+                List<string> expected = new List<string>() { "Kiran"};
+                List<string> actual = personManagement.SkipRecordLessThan60();
+                CollectionAssert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                string expect = "No Record";
+                Assert.AreEqual(ex.Message, expect);
             }
 
         }
