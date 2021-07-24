@@ -36,7 +36,7 @@ namespace TestProject
         }
         //Usecase 4 Average age in the list
         [TestMethod]
-        public void ReturnAverageofAge()
+        public void TestMethodReturnAverageofAge()
         {
             PersonManagement personManagement = new PersonManagement();
             double expected = 31.667;
